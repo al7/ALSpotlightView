@@ -29,7 +29,10 @@ In the sample code above, I showed how to initialize the control in the simplest
 ```swift
 //-- Full Initialization:
 
-let spotlightView = ALSpotlightView(spotlightCenter: center, spotlightRadius: radius, modalOpacity: opacity, onTapHandler: nil)
+let spotlightView = ALSpotlightView(spotlightCenter: center, 
+                                    spotlightRadius: radius, 
+                                       modalOpacity: opacity,
+                                       onTapHandler: nil)
 ```
 The control has the following properties: 
 
