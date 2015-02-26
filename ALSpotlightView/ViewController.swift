@@ -17,20 +17,34 @@ class ViewController: UIViewController {
         let label = UILabel(frame: self.view.bounds)
         label.textAlignment = .Center
         label.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+        label.numberOfLines = 0
+        label.lineBreakMode = .ByWordWrapping
         label.text = "Tap Anywhere in screen\nto see Spotlight View"
         self.view.addSubview(label)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "onTap:")
+        tapGestureRecognizer.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //MARK- Tap Gesture Recognizer
+    
+    func onTap(sender: UITapGestureRecognizer) {
+        let location = sender.locationInView(self.view)
+        var spotlightCenter = CGPointZero
+        spotlightCenter.x = location.x / self.view.bounds.size.width
+        spotlightCenter.y = location.y / self.view.bounds.size.height
+        
+        let spotlightView = ALSpotlightView(spotlightCenter: spotlightCenter)
+        spotlightView.onTapHandler = {
+            spotlightView.hide()
+        }
+        spotlightView.show()
     }
-    
-    
+
 }
 

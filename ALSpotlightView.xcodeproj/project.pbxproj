@@ -11,6 +11,7 @@
 		137ACA5C1A9EEFC8006689AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137ACA5B1A9EEFC8006689AC /* ViewController.swift */; };
 		137ACA611A9EEFC8006689AC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137ACA601A9EEFC8006689AC /* Images.xcassets */; };
 		137ACA701A9EEFC8006689AC /* ALSpotlightViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137ACA6F1A9EEFC8006689AC /* ALSpotlightViewTests.swift */; };
+		137ACA7B1A9EF27A006689AC /* ALSpotlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137ACA7A1A9EF27A006689AC /* ALSpotlightView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +33,7 @@
 		137ACA691A9EEFC8006689AC /* ALSpotlightViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ALSpotlightViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		137ACA6E1A9EEFC8006689AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		137ACA6F1A9EEFC8006689AC /* ALSpotlightViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALSpotlightViewTests.swift; sourceTree = "<group>"; };
+		137ACA7A1A9EF27A006689AC /* ALSpotlightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALSpotlightView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		137ACA561A9EEFC8006689AC /* ALSpotlightView */ = {
 			isa = PBXGroup;
 			children = (
+				137ACA791A9EF24F006689AC /* Source */,
 				137ACA591A9EEFC8006689AC /* AppDelegate.swift */,
 				137ACA5B1A9EEFC8006689AC /* ViewController.swift */,
 				137ACA601A9EEFC8006689AC /* Images.xcassets */,
@@ -104,6 +107,14 @@
 				137ACA6E1A9EEFC8006689AC /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		137ACA791A9EF24F006689AC /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				137ACA7A1A9EF27A006689AC /* ALSpotlightView.swift */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				137ACA7B1A9EF27A006689AC /* ALSpotlightView.swift in Sources */,
 				137ACA5C1A9EEFC8006689AC /* ViewController.swift in Sources */,
 				137ACA5A1A9EEFC8006689AC /* AppDelegate.swift in Sources */,
 			);
