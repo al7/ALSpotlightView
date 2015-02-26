@@ -35,13 +35,14 @@ public class ALSpotlightView: UIView {
     public var targetView: UIView? { get { return _targetView } }
     public var onTapHandler: SpotlightTapHandler?
     
-    public init(spotlightCenter: CGPoint, spotlightRadius: CGFloat = 200.0, modalOpacity: CGFloat = 0.6) {
+    public init(spotlightCenter: CGPoint, spotlightRadius: CGFloat = 200.0, modalOpacity: CGFloat = 0.6, onTapHandler: SpotlightTapHandler? = nil) {
         super.init(frame: CGRectZero)
         self.backgroundColor = UIColor.clearColor()
+        self.autoresizingMask = .FlexibleWidth | .FlexibleHeight
         self.spotlightRadius = spotlightRadius
         self.spotlightCenter = spotlightCenter
         self.modalOpacity = modalOpacity
-        self.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+        self.onTapHandler = onTapHandler
     }
 
     override public init(frame: CGRect) {
