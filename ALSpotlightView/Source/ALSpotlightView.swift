@@ -142,7 +142,7 @@ public class ALSpotlightView: UIView {
     private func clearGestureRecognizers() {
         if let recognizers = self.gestureRecognizers {
             for recognizer in recognizers {
-                self.removeGestureRecognizer(recognizer as UIGestureRecognizer)
+                self.removeGestureRecognizer(recognizer as! UIGestureRecognizer)
             }
         }
     }
