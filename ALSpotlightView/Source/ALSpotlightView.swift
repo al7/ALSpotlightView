@@ -38,13 +38,13 @@ public class ALSpotlightView: UIView {
     public init(spotlightCenter: CGPoint, spotlightRadius: CGFloat = 200.0, modalOpacity: CGFloat = 0.6, onTapHandler: SpotlightTapHandler? = nil) {
         super.init(frame: CGRectZero)
         self.backgroundColor = UIColor.clearColor()
-        self.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+        self.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.spotlightRadius = spotlightRadius
         self.spotlightCenter = spotlightCenter
         self.modalOpacity = modalOpacity
         self.onTapHandler = onTapHandler
     }
-
+    
     override public init(frame: CGRect) {
         fatalError("init(frame:) not available. Please use designated initializer")
     }
@@ -71,7 +71,7 @@ public class ALSpotlightView: UIView {
         let endPoint = gradientCenter
         let endRadius = self.spotlightRadius
         
-        CGContextDrawRadialGradient(context, gradient, startPoint, startRadius, endPoint, endRadius, 2)
+        CGContextDrawRadialGradient(context, gradient, startPoint, startRadius, endPoint, endRadius, .DrawsAfterEndLocation)
     }
     
     public override func layoutSubviews() {
@@ -88,13 +88,13 @@ public class ALSpotlightView: UIView {
             self.setNeedsDisplay()
             tv.addSubview(self)
             
-            var animation: () -> Void = {
+            let animation: () -> Void = {
                 self.alpha = 1.0
             }
             
-            var completion: (Bool) -> Void = {
+            let completion: (Bool) -> Void = {
                 finished in
-
+                
                 let tapRecognizer = UITapGestureRecognizer(target: self, action: "onSpotlightViewTap:")
                 tapRecognizer.numberOfTapsRequired = 1
                 self.addGestureRecognizer(tapRecognizer)
@@ -116,17 +116,17 @@ public class ALSpotlightView: UIView {
     public func hide(animated: Bool = true, duration: NSTimeInterval = 0.3) {
         self.clearGestureRecognizers()
         self.onTapHandler = nil
-
-        var animation: () -> Void = {
+        
+        let animation: () -> Void = {
             self.alpha = 0.0
         }
         
-        var completion: (Bool) -> Void = {
+        let completion: (Bool) -> Void = {
             finished in
             
             self._targetView = nil
             self.removeFromSuperview()
-         }
+        }
         
         if animated {
             UIView.animateWithDuration(duration, animations: animation, completion: completion)
@@ -142,7 +142,7 @@ public class ALSpotlightView: UIView {
     private func clearGestureRecognizers() {
         if let recognizers = self.gestureRecognizers {
             for recognizer in recognizers {
-                self.removeGestureRecognizer(recognizer as! UIGestureRecognizer)
+                self.removeGestureRecognizer(recognizer)
             }
         }
     }
